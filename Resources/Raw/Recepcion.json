@@ -1,0 +1,44 @@
+[
+  {
+    "Id": 1,
+    "Cliente": "Supermercado Coto",
+    "NroPedido": "001-0000001",
+    "FechaPedido": "19/06/2022",
+    "Cantidad": 25
+  },
+  {
+    "Id": 2,
+    "Cliente": "Plaza Vea",
+    "NroPedido": "002-0000032",
+    "FechaPedido": "21/06/2022",
+    "Cantidad": 70
+  },
+  {
+    "Id": 3,
+    "Cliente": "Plaza Vea",
+    "NroPedido": "003-0000033",
+    "FechaPedido": "21/06/2022",
+    "Cantidad": 70
+  },
+  {
+    "Id": 4,
+    "Cliente": "Plaza Vea",
+    "NroPedido": "004-0000034",
+    "FechaPedido": "21/06/2022",
+    "Cantidad": 70
+  },
+  {
+    "Id": 5,
+    "Cliente": "Plaza Vea",
+    "NroPedido": "005-0000035",
+    "FechaPedido": "21/06/2022",
+    "Cantidad": 70
+  },
+  {
+    "Id": 6,
+    "Cliente": "Plaza Vea",
+    "NroPedido": "006-0000036",
+    "FechaPedido": "21/06/2022",
+    "Cantidad": 70
+  }
+]

@@ -1,0 +1,16 @@
+[
+  {
+    "FullName": "Sandra",
+    "Usuario": "1",
+    "Pass": "1",
+    "RoleID": 1,
+    "RoleText": "Primero"
+  },
+  {
+    "FullName": "Fabian",
+    "Usuario": "3",
+    "Pass": "3",
+    "RoleID": 3,
+    "RoleText": "Tercero"
+  }
+]

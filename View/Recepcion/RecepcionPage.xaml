@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppPicking.View.RecepcionPage"
+             Title="Recepcion"
+             xmlns:model="clr-namespace:AppPicking.Model"
+             xmlns:viewmodel="clr-namespace:AppPicking.ViewModel"
+             x:DataType="viewmodel:RecepcionPageViewModel" >
+
+    <Grid
+        ColumnDefinitions="*,*"
+        ColumnSpacing="5"
+        RowDefinitions="*,Auto"
+        RowSpacing="0"
+        
+        >
+        <RefreshView
+            Grid.ColumnSpan="2"
+            Command="{Binding GetRecepcionsCommand}"
+            IsRefreshing="{Binding IsRefreshing}">
+            <CollectionView
+                ItemsSource="{Binding recepcions}"
+                BackgroundColor="Transparent"
+                SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:Recepcion">
+                        <Grid Padding="5">
+                            <Frame HeightRequest="90" Style="{StaticResource CardView}">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer 
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:RecepcionPageViewModel}}, Path=GoToDetailsCommand}"
+                                        CommandParameter="{Binding .}"/>
+                                </Frame.GestureRecognizers>
+                                <Grid Padding="0" ColumnDefinitions="80,*,50">
+                                    <Image
+                                        Aspect="AspectFill"
+                                        HeightRequest="50"
+                                        Source="check100.png"
+                                        WidthRequest="50" />
+                                    
+                                    <VerticalStackLayout
+                                        Grid.Column="1"
+                                        Padding="5">
+                                        <Label Style="{StaticResource LargeLabel}" Text="{Binding Cliente, StringFormat='Cliente: {0}'}" />
+                                        <Label Style="{StaticResource MediumLabel}" Text="{Binding NroPedido, StringFormat='El numero de Pedido es: {0}'}" />
+                                    </VerticalStackLayout>
+
+                                    <Image
+                                        Aspect="AspectFill"
+                                        Source="chevron48.png"
+                                        Grid.Column="2"
+                                        Rotation="85"
+                                        HeightRequest="30"
+                                        WidthRequest="30" />
+                                </Grid>
+                            </Frame>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+
+
+        <ActivityIndicator
+            Grid.RowSpan="2"
+            Grid.ColumnSpan="2"
+            HorizontalOptions="FillAndExpand"
+            IsRunning="{Binding IsBusy}"
+            IsVisible="{Binding IsBusy}"
+            VerticalOptions="CenterAndExpand" />
+    </Grid>
+    
+</ContentPage>

@@ -1,0 +1,30 @@
+[
+  {
+    "PedidoId": 1,
+    "PedidoDetalleId": 1,
+    "Articulo": "Yoogur Vencido",
+    "CodArt": "123",
+    "Cantidad": 20
+  },
+  {
+    "PedidoId": 1,
+    "PedidoDetalleId": 2,
+    "Articulo": "Aceite",
+    "CodArt": "234",
+    "Cantidad": 10
+  },
+  {
+    "PedidoId": 1,
+    "PedidoDetalleId": 3,
+    "Articulo": "Asado",
+    "CodArt": "345",
+    "Cantidad": 20
+  }
+  {
+    "PedidoId": 1,
+    "PedidoDetalleId": 4,
+    "Articulo": "Jabon Liquido",
+    "CodArt": "456",
+    "Cantidad": 20
+  }
+]

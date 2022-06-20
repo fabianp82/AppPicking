@@ -1,0 +1,13 @@
+﻿global using CommunityToolkit.Mvvm.ComponentModel;
+global using CommunityToolkit.Mvvm.Input;
+global using AppPicking.View;
+global using AppPicking.ViewModel;
+global using System.Collections.ObjectModel;
+global using System.ComponentModel;
+global using System.Diagnostics;
+global using System.Runtime.CompilerServices;
+global using System.Text.Json;
+global using AppPicking.Handlers;
+global using AppPicking.Model;
+global using AppPicking.Services;
+global using AppPicking.Helpers;
