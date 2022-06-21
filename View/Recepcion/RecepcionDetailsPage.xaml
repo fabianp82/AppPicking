@@ -2,12 +2,69 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppPicking.View.RecepcionDetailsPage"
-             Title="RecepcionDetailsPage">
-    <VerticalStackLayout>
-        <StackLayout Margin="20,35,20,25">
-            <Label Text="The StackLayout has its Margin property set, to control the rendering position of the StackLayout." />
-            <Label Text="The Padding property can be set to specify the distance between the StackLayout and its children." />
-            <Label Text="The Spacing property can be set to specify the distance between views in the StackLayout." />
-        </StackLayout>
-    </VerticalStackLayout>
+             Title="{Binding Recepcion.NroPedido , StringFormat='Pedido {0}'}"
+             xmlns:model="clr-namespace:AppPicking.Model"
+             xmlns:viewmodel="clr-namespace:AppPicking.ViewModel"
+             x:DataType="viewmodel:RecepcionDetailsPageViewModel">
+
+    <Grid
+        ColumnDefinitions="*,*"
+        ColumnSpacing="5"
+        RowDefinitions="*,Auto"
+        RowSpacing="0"
+        BackgroundColor="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}">
+        <RefreshView
+            Grid.ColumnSpan="2"
+            Command="{Binding GetArticulosCommand}"
+            IsRefreshing="{Binding IsRefreshing}">
+            <CollectionView
+                ItemsSource="{Binding Recepcion.articulos}"
+                BackgroundColor="Transparent"
+                SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:Articulos">
+                        <Grid Padding="10">
+                            <Frame HeightRequest="125" Style="{StaticResource CardView}">
+                                <!--<Frame.GestureRecognizers>
+                                    <TapGestureRecognizer 
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MonkeysViewModel}}, Path=GoToDetailsCommand}"
+                                        CommandParameter="{Binding .}"/>
+                                </Frame.GestureRecognizers>-->
+                                <Grid Padding="0" ColumnDefinitions="125,*">
+                                    <Image
+                                        Aspect="AspectFill"
+                                        HeightRequest="125"
+                                        Source="check100.png"
+                                        WidthRequest="125" />
+                                    <VerticalStackLayout
+                                        Grid.Column="1"
+                                        Padding="10">
+                                        <Label Style="{StaticResource LargeLabel}" Text="{Binding Articulo}" />
+                                        <Label Style="{StaticResource MediumLabel}" Text="{Binding Cantidad}" />
+                                    </VerticalStackLayout>
+                                </Grid>
+                            </Frame>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+
+        <Button
+            Grid.Row="1"
+            Grid.ColumnSpan="2"
+            Margin="8"
+            Command="{Binding GetFotoCommand}"
+            IsEnabled="{Binding IsNotBusy}"
+            Style="{StaticResource ButtonOutline}"
+            Text="Foto" />
+
+        <ActivityIndicator
+            Grid.RowSpan="2"
+            Grid.ColumnSpan="2"
+            HorizontalOptions="FillAndExpand"
+            IsRunning="{Binding IsBusy}"
+            IsVisible="{Binding IsBusy}"
+            VerticalOptions="CenterAndExpand" />
+    </Grid>
 </ContentPage>

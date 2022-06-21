@@ -17,6 +17,7 @@
         ContentTemplate="{DataTemplate startupPages:LoginPage}"
         Route="LoginPage" />
 
+
     <Shell.FlyoutFooter>
         <StackLayout Padding="20">
             <Button Text="Sign Out" Command="{Binding SignOutCommand}"/> 

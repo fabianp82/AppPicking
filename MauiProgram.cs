@@ -25,11 +25,13 @@ public static class MauiProgram
         builder.Services.AddSingleton<LoginPageViewModel>();
         builder.Services.AddSingleton<LoadingPageViewModel>();
         builder.Services.AddTransient<RecepcionPageViewModel>();
+        builder.Services.AddTransient<RecepcionDetailsPageViewModel>();
 
         //Views
         builder.Services.AddSingleton<LoginPage>();
         builder.Services.AddSingleton<LoadingPage>();
         builder.Services.AddTransient<RecepcionPage>();
+        builder.Services.AddTransient<RecepcionDetailsPage>();
         builder.Services.AddTransient<EgresoPage>();
         
         return builder.Build();

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AppPicking.ViewModel
 {
-    [QueryProperty(nameof(Recepcion), "Recepcion")]
+    [QueryProperty(nameof(Recepcion), nameof(Recepcion))]
     public partial class RecepcionDetailsPageViewModel : BaseViewModel
     {
         [ObservableProperty]
@@ -21,8 +21,14 @@ namespace AppPicking.ViewModel
         {
             this.recepcionServices = recepcionServices;
             this.connectivity = connectivity;
-            var a = GetArticulosAsync();
+            // var a = GetArticulosAsync();
         }
+
+        partial void OnRecepcionChanged(Recepcion value)
+        {
+            var r = GetArticulosAsync();
+        }
+
 
         [RelayCommand]
         async Task GetArticulosAsync()
@@ -40,9 +46,12 @@ namespace AppPicking.ViewModel
                 }
 
                 IsBusy = true;
-                var articulos = await recepcionServices.GetArticulos(recepcion.Id);
+                if (recepcion is not null)
+                {
+                    var articulos = await recepcionServices.GetArticulos(recepcion.Id);
 
-                Recepcion.articulos.AddRange(articulos);
+                    Recepcion.articulos.AddRange(articulos);
+                }
 
             }
             catch (Exception ex)
@@ -56,6 +65,12 @@ namespace AppPicking.ViewModel
                 IsRefreshing = false;
             }
 
+        }
+
+        [RelayCommand]
+        async Task GetFotoAsync()
+        {
+            return ;
         }
 
 

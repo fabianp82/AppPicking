@@ -25,7 +25,7 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="model:Recepcion">
                         <Grid Padding="5">
-                            <Frame HeightRequest="90" Style="{StaticResource CardView}">
+                            <Frame HeightRequest="100" Style="{StaticResource CardView}">
                                 <Frame.GestureRecognizers>
                                     <TapGestureRecognizer 
                                         Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:RecepcionPageViewModel}}, Path=GoToDetailsCommand}"
@@ -41,8 +41,8 @@
                                     <VerticalStackLayout
                                         Grid.Column="1"
                                         Padding="5">
-                                        <Label Style="{StaticResource LargeLabel}" Text="{Binding Cliente, StringFormat='Cliente: {0}'}" />
-                                        <Label Style="{StaticResource MediumLabel}" Text="{Binding NroPedido, StringFormat='El numero de Pedido es: {0}'}" />
+                                        <Label Style="{StaticResource LargeLabel}" Text="{Binding Cliente, StringFormat='{0}'}" />
+                                        <Label Style="{StaticResource MediumLabel}" Text="{Binding NroPedido, StringFormat='Pedido {0}'}" />
                                     </VerticalStackLayout>
 
                                     <Image

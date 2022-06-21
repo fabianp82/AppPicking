@@ -19,7 +19,7 @@
     "Articulo": "Asado",
     "CodArt": "345",
     "Cantidad": 20
-  }
+  },
   {
     "PedidoId": 1,
     "PedidoDetalleId": 4,

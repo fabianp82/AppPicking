@@ -67,12 +67,14 @@ namespace AppPicking.ViewModel
             if (recepcion == null)
                 return;
 
-            await Shell.Current.DisplayAlert("Pedido!", recepcion.NroPedido, "OK");
+            //await Shell.Current.DisplayAlert("Pedido!", recepcion.NroPedido, "OK");
 
-            //await Shell.Current.GoToAsync(nameof(DetailsPage), true, new Dictionary<string, object>
-            //{
-            //    {"Monkey", recepcion }
-            //});
+
+            //await Shell.Current.GoToAsync($"//{nameof(RecepcionPage)}");
+            await Shell.Current.GoToAsync($"{nameof(RecepcionDetailsPage)}", true, new Dictionary<string, object>
+            {
+                ["Recepcion"]= recepcion 
+            });
         }
     }
 }
